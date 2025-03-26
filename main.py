@@ -66,8 +66,8 @@ mse_svr_val = mean_squared_error(y_val, y_pred_svr_val)
 r2_svr_val = r2_score(y_val, y_pred_svr_val)
 
 print("=== Validation Results ===")
-print("Linear Regression - MSE:", mse_lin_val, "R²:", r2_lin_val)
-print("SVR (Linear)      - MSE:", mse_svr_val, "R²:", r2_svr_val)
+print("Linear Regression - MSE:", mse_lin_val, "R^2:", r2_lin_val)
+print("SVR (Linear)      - MSE:", mse_svr_val, "R^2:", r2_svr_val)
 
 y_pred_lin_test = lin_reg.predict(X_test)
 y_pred_svr_test = svr_reg.predict(X_test)
