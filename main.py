@@ -38,9 +38,10 @@ for name, model in models.items():
     print(f"Validation MSE: {result['val_mse']:.2f}, R^2: {result['val_r2']:.4f}")
     print(f"Test MSE: {result['test_mse']:.2f}, R^2: {result['test_r2']:.4f}")
 
-plot_combined(y_val, val_preds, "Validation Set: All Models")
-plot_combined(y_test, test_preds, "Test Set: All Models")
+plot_combined(y_val, val_preds, "Validation Set: All Models", save_path="plots/combined_validation.png")
+plot_combined(y_test, test_preds, "Test Set: All Models", save_path="plots/combined_test.png")
 
 for name in models.keys():
-    plot_single(y_val, val_preds[name], "Validation Set", name)
-    plot_single(y_test, test_preds[name], "Test Set", name)
+    filename_base = name.lower().replace(" ", "_").replace("(", "").replace(")", "")
+    plot_single(y_val, val_preds[name], "Validation Set", name, save_path=f"plots/{filename_base}_val.png")
+    plot_single(y_test, test_preds[name], "Test Set", name, save_path=f"plots/{filename_base}_test.png")
